@@ -4,9 +4,9 @@ skinparam classAttributeIconSize 0
 ' Définition des classes
 class TaskModel {
   - task_list: List[str]
-  + add_task(task: str): void
-  + remove_task(index: int): void
-  + get_tasks(): List[str]
+  + create(task: str): void
+  + delete(index: int): void
+  + reads(): List[str]
 }
 
 class TaskView {
