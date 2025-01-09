@@ -1,0 +1,31 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+' Définition des classes
+class TaskModel {
+  - task_list: List[str]
+  + add_task(task: str): void
+  + remove_task(index: int): void
+  + get_tasks(): List[str]
+}
+
+class TaskView {
+  + task_input: QLineEdit
+  + add_button: QPushButton
+  + task_list_widget: QListWidget
+  + show_error(message: str): void
+}
+
+class TaskController {
+  - model: TaskModel
+  - view: TaskView
+  + add_task(): void
+  + remove_task(item: QListWidgetItem): void
+  + update_task_list(): void
+}
+
+' Relations entre les classes
+TaskController --> TaskModel : utilise
+TaskController --> TaskView : utilise
+TaskView <-- TaskModel : communique via le contrôleur
+@enduml
