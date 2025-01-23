@@ -1,13 +1,19 @@
 # task_controller.py
+from model.task_model import TaskModel
+from view.task_view import TaskView
+
 class TaskController:
     """
     Classe représentant le contrôleur dans le pattern MVC.
     Elle gère la communication entre le modèle et la vue.
     """
 
-    def __init__(self, model, view):
-        self.model = model
-        self.view = view
+    def __init__(self):
+        self.model = TaskModel()
+        self.view = TaskView()
+
+        # Afficher l'interface utilisateur
+        self.view.show()
 
         # Connexion des actions de la vue aux méthodes du contrôleur
         self.view.add_button.clicked.connect(self.add_task)
@@ -32,5 +38,6 @@ class TaskController:
     def update_task_list(self):
         """Met à jour l'affichage des tâches dans la vue."""
         self.view.task_list_widget.clear()
-        self.view.task_list_widget.addItems(self.model.reads())
+        reads = self.model.reads()
+        self.view.task_list_widget.addItems(reads)
 

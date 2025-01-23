@@ -15,7 +15,7 @@ class TaskView(QWidget):
         self.setWindowTitle("Task Manager - MVC Example")
 
         # Layout principal
-        self.layout = QVBoxLayout()
+        layout = QVBoxLayout()
 
         # Composants de l'UI
         self.task_input = QLineEdit(self)
@@ -24,11 +24,11 @@ class TaskView(QWidget):
         self.task_list_widget = QListWidget(self)
 
         # Ajouter les composants au layout
-        self.layout.addWidget(self.task_input)
-        self.layout.addWidget(self.add_button)
-        self.layout.addWidget(self.task_list_widget)
+        layout.addWidget(self.task_input)
+        layout.addWidget(self.add_button)
+        layout.addWidget(self.task_list_widget)
 
-        self.setLayout(self.layout)
+        self.setLayout(layout)
 
     def show_error(self, message: str):
         """Affiche une boîte de dialogue pour les erreurs."""
