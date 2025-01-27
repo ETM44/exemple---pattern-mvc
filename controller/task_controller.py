@@ -37,7 +37,7 @@ class TaskController:
 
     def update_task_list(self):
         """Met à jour l'affichage des tâches dans la vue."""
-        self.view.task_list_widget.clear()
         reads = self.model.reads()
+        self.view.task_list_widget.clear()
         self.view.task_list_widget.addItems(reads)
 

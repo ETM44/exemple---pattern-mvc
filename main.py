@@ -9,7 +9,7 @@ if __name__ == "__main__":
     # Initialiser l'application PyQt
     app = QApplication(sys.argv)
 
-    # Initialiser le modèle, la vue et le contrôleur
+    # Initialiser le contrôleur
     controller = TaskController()
 
     # Lancer l'application
